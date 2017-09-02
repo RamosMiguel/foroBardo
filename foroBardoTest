@@ -1,0 +1,52 @@
+import foroBardo.*
+
+describe "test de foro bardo"{
+	test "pagani eleva la voz y su nivel de enojo sube a 10" {
+		horacioPagani.elevarLaVoz()
+		assert.equals(10, horacioPagani.nivelDeEnojo())
+	}
+	test "pagani toma agua y baja su nivel de enojo a 0"{
+		horacioPagani.tomarAgua()
+		assert.equals(0, horacioPagani.nivelDeEnojo())
+	}
+	test "pagani se calma y si no esta caliente su nivel de enojo queda en cero"{
+		horacioPagani.calmarse()
+		assert.equals(0, horacioPagani.nivelDeEnojo())
+	}
+	test "ver si horacio esta caliente, no deberia" {
+		assert.equals(false, horacioPagani.estaCaliente())
+	}
+	test "pasman eleva la voz y soberbia sube a 25 y tiene sed"{
+		totiPasman.elevarLaVoz()
+		assert.equals(25, totiPasman.soberbia())
+		assert.equals(true, totiPasman.tieneSed())
+	}
+	test "pasman toma agua y se queda quita la sed"{
+		totiPasman.tomarAgua()
+		assert.equals(false, totiPasman.tieneSed())
+	}
+	test "pasman se calma por 5 minutos y su soberbia baja a 5"{
+		totiPasman.calmarse(5)
+		assert.equals(5, totiPasman.soberbia())	
+	}
+	test "tagliani toma agua y su humor se duplica a 10"{
+		lizzyTagliani.tomarAgua()
+		assert.equals(10, lizzyTagliani.humor())
+	}
+	test "tagliani se calma 10 minutos y su humor sube a 15"{
+		lizzyTagliani.calmarse(10)
+		assert.equals(15, lizzyTagliani.humor())
+	}
+	test "fantino hace hablar de deportes a toti pasman, su soberbia sube a 25, 
+	se le va la sed y se calma 10 minutos por lo que su soberbia queda en 5"{
+	fantino.hacerDiscutirSobreDeportes(totiPasman)
+	assert.equals(5, totiPasman.soberbia())
+	assert.equals(false,totiPasman.tieneSed())
+	}
+	test "polino hace hablar de chimentos a lizzy tagliani, se calma 5 minutos y 
+	su humor sube a 10 y tomando agua se duplica a 20"{
+	polino.hacerOpinarSobreChimentos(lizzyTagliani)
+	assert. equals(20, lizzyTagliani.humor())
+	}
+}
+
