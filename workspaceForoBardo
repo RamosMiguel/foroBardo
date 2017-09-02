@@ -1,0 +1,94 @@
+/** First Wollok example */
+object horacioPagani {
+	var nivelEnojo=0
+	
+	method elevarLaVoz() {
+		nivelEnojo+=10
+	}
+	
+	method tomarAgua(){
+		self.bajarEnojo()
+		if(nivelEnojo<0){
+			nivelEnojo=0
+		}
+	}
+	
+	method bajarEnojo(){
+		nivelEnojo-=nivelEnojo*100/10
+	}
+	
+	method calmarse(){
+		if(!self.estaCaliente()){
+			nivelEnojo=0
+		}
+	}
+	
+	method estaCaliente(){
+		return nivelEnojo>20
+	}
+	
+	method nivelDeEnojo(){
+		return nivelEnojo
+	}
+}
+
+object totiPasman {
+	
+	var soberbia=15
+	var tieneSed = false
+	
+	method elevarLaVoz(){
+		soberbia+=10
+		tieneSed= true
+	}
+	
+	method tomarAgua (){
+		tieneSed= false
+	}
+	
+	method calmarse(unosMinutos){
+		soberbia-=unosMinutos*2
+	}
+	
+	method soberbia(){
+		return soberbia
+	}
+
+	method tieneSed(){
+		return tieneSed
+	}
+}
+
+object lizzyTagliani{
+	var humor=5
+	
+	method tomarAgua(){
+		humor+=humor
+	}
+	
+	method calmarse(unosMinutos){
+		humor+=unosMinutos
+	}
+	
+	method humor(){
+		return humor
+	}
+}
+
+object fantino {
+	method hacerDiscutirSobreDeportes(unPanelista){
+		unPanelista.elevarLaVoz()
+		2.times{
+			unPanelista.tomarAgua()
+		}
+		unPanelista.calmarse(10)
+	}
+}
+
+object polino{
+	method hacerOpinarSobreChimentos(unPanelista){
+		unPanelista.calmarse(5)
+		unPanelista.tomarAgua()
+	}
+}
+
